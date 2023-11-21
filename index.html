@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <!-- bs -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="w-100" style="height: 100vh; background-color: black;">
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center align-items-center">
+                    <h1 id="time" style="font-size: 150px;" class="text-light">
+                        HH:MM:SS
+                    </h1>
+                </div>
+            </div>
+        </div>
+</body>
+<script>
+    const getTimeData = () =>{
+        const localTime = new Date()
+        const hour = localTime.getHours()
+        const minutes = localTime.getMinutes()
+        const sec = localTime.getSeconds()
+        const displayTime = hour>=12? `${hour} : ${minutes} : ${sec} PM` : `${hour} : ${minutes} : ${sec} AM`
+        time.innerHTML = displayTime
+        setTimeout(()=>{
+            getTimeData()
+        },1000)
+    }
+    getTimeData()
+</script>
+</html>
